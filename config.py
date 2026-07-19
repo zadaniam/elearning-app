@@ -1,18 +1,19 @@
 # config.py
-
 import os
+from dotenv import load_dotenv
 
-# STATUS DEVELOPMENT: Ubah ke True jika masih di laptop, ubah ke False jika sudah rilis/produksi
-IS_DEVELOPMENT = True
+load_dotenv()
 
-# SINGLE SOURCE OF TRUTH: Pusatkan semua URL di satu tempat ini
-if IS_DEVELOPMENT:
-    # URL saat pengujian lokal di komputer/laptop Anda
-    # TIPS: Jika running di Emulator Android, ganti ke "http://10.0.2.2:8000"
+# Jika di .env tidak ada, maka otomatis default ke 'production' demi keamanan sistem rilis.
+APP_ENV = os.getenv("APP_ENV", "production")
+
+# SINGLE SOURCE OF TRUTH: Penentuan URL dasar API secara otomatis
+if APP_ENV == "development":
     BASE_URL = "http://localhost:8000"
+elif APP_ENV == "staging":
+    BASE_URL = "https://elearning-backend-staging-8f81.up.railway.app"
 else:
-    # URL asli saat aplikasi Anda sudah online (Server Produksi/Live)
-    BASE_URL = "https://bisnisanda.com"
+    BASE_URL = "https://elearning-backend-production-b5a4.up.railway.app"
 
 # Kumpulan endpoint resmi agar penulisan di file screen menjadi rapi
 API_URLS = {
