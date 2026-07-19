@@ -29,6 +29,9 @@ def LoginScreen(page: ft.Page):
 
         # 1. COBA LOGIN KE FIREBASE melalui BACKEND FASTAPI
         try:
+            # Tambahkan baris cetak ini untuk melihat isi URL aslinya
+            print(f"📡 APLIKASI SEDANG MENEMBAK URL: {API_URLS['login']}")
+            
             response = requests.post(
                 API_URLS["login"],
                 json={"email": txt_email.value, "password": txt_password.value},

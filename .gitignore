@@ -1,0 +1,22 @@
+# 1. Variabel Lingkungan & Kunci Rahasia Lokal
+.env
+.env.local
+
+# 2. Sampah Kompilasi Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 3. Virtual Environment Python (Jika nanti dibuat di folder ini)
+.venv/
+venv/
+ENV/
+
+# 4. Sampah Sistem Operasi & Text Editor Laptop
+.DS_Store
+.vscode/
+.idea/
+
+# 5. Hasil Kompilasi Aplikasi Flet (Saat build jadi APK / EXE / Web)
+dist/
+build/
